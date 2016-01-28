@@ -115,7 +115,7 @@ class SkypeWebAdapter extends Adapter
     if process.platform.indexOf('win') isnt -1
       # Disable dnode with weak on Windows hosts
       phantomOptions.dnodeOpts = weak: false
-    phantom.create ((ph) ->
+    phantom.create '--web-security=no', ((ph) ->
       ph.createPage (page) ->
         # Execute fail condition if login time limit expires
         errorTimer = setTimeout (->
